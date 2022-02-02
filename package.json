@@ -1,0 +1,25 @@
+{
+  "name": "@eazyautodelete/eazyautodelete-lang",
+  "version": "1.0.1",
+  "description": "💬 Language files used by eazyautodelete",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eazyautodelete/eazyautodelete-lang.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eazyautodelete/eazyautodelete-lang/issues"
+  },
+  "homepage": "https://github.com/eazyautodelete/eazyautodelete-lang#readme",
+  "dependencies": {
+    "i18n": "^0.13.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
