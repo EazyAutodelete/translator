@@ -1,25 +1,40 @@
 {
   "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.0.1",
-  "description": "💬 Language files used by eazyautodelete",
-  "main": "src/index.js",
+  "version": "1.1.0",
+  "description": "💬 Language files used by EazyAutodelete",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "build/*.js",
+    "build/**/*.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eazyautodelete/eazyautodelete-lang.git"
   },
-  "author": "",
+  "typings": "build/typings/index.d.ts",
+  "author": {
+    "email": "dev@qreepex.xyz",
+    "name": "qreepex",
+    "url": "https://qreepex.xyz"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eazyautodelete/eazyautodelete-lang/issues"
   },
   "homepage": "https://github.com/eazyautodelete/eazyautodelete-lang#readme",
   "dependencies": {
-    "i18n": "^0.13.3"
+    "i18n": "^0.13.3",
+    "path": "^0.12.7"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@types/i18n": "^0.13.2",
+    "@types/node": "^17.0.23",
+    "tsc": "^2.0.4"
   }
 }

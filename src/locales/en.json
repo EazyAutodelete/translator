@@ -1,6 +1,6 @@
 {
-	"test": "test",
-	"botinfoShort": "%s focuses on keeping channels clean and safe. You can easily configure it threw a handful of useful commands.",
-	"botinfoShort %s": "botinfoShort %s",
-	"commandDisabled":"This command is currently disabled. Reason:```\n%s```"
+  "test": "test",
+  "botinfoShort": "%s focuses on keeping channels clean and safe. You can easily configure it threw a handful of useful commands.",
+  "botinfoShort %s": "botinfoShort %s",
+  "commandDisabled": "This command is currently disabled. Reason:```\n%s```"
 }
