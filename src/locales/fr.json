@@ -1,0 +1,37 @@
+{
+	"error": {
+		"invalidChannelTypes": "error.invalidChannelTypes"
+	},
+	"nuke": {
+		"confirm": {
+			"title": "Are u sure that u want to nuke this channel?",
+			"description": "**ALL** messages in this channel will be gone.",
+			"sent": "Please confirm your action in <#%s>. **[Click here](%s)**"
+		}
+	},
+	"language": {
+		"show": "Your language is currently set to: **%s**.\nUse `/language` to change your language.",
+		"edit": "Your language has been changed to: **%s**."
+	},
+	"meta": {
+		"native": "Francais",
+		"english": "French",
+		"code": "fr"
+	},
+	"bot": {
+		"info": {
+			"short": "%s focuses on keeping channels clean and safe. You can easily configure it through a handful of useful commands."
+		}
+	},
+	"autodelete": {
+		"show": {
+			"title": "autodelete.show.title",
+			"description": "autodelete.show.description"
+		}
+	},
+	"config": {
+		"commands": {
+			"disabled": "This command is currently disabled. Reason:```\n%s```"
+		}
+	}
+}
