@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/index.js",
   "scripts": {
@@ -10,13 +10,15 @@
     "build/*.js",
     "build/**/*.js",
     "build/*.d.tjs",
-    "build/**/*.d.ts"
+    "build/**/*.d.ts",
+    "build/*.json",
+    "build/**/*.json"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eazyautodelete/eazyautodelete-lang.git"
   },
-  "typings": "build/typings/index.d.ts",
+  "typings": "build/index.d.ts",
   "author": {
     "email": "dev@qreepex.xyz",
     "name": "qreepex",

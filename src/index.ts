@@ -11,6 +11,7 @@ Translator.configure({
   fallbacks: { "*": "en" },
   retryInDefaultLocale: true,
   autoReload: true,
+  objectNotation: true
 });
 
 export default {
