@@ -37,7 +37,7 @@ export default class Translator {
   }
 }
 
-interface TranslatorConfig {
+export interface TranslatorConfig {
   defaultLocale: Locale;
   locales: Locale[]
 }

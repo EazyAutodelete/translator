@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/index.js",
   "scripts": {

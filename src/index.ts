@@ -1,16 +1,9 @@
 import locales from "./locales";
-import path from "path";
 import Translator from "./Translator";
 
-const translator = new Translator({
-  locales: locales,
-  defaultLocale: "en"
-});
-
 export default {
-  translator,
-  locales,
-  translate: translator.translate,
+  Translator,
+  locales
 };
 
 export type Locale =
