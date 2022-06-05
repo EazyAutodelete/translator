@@ -1,21 +1,45 @@
 import locales from "./locales";
 import path from "path";
-import i18n from "i18n";
+import Translator from "./Translator";
 
-const Translator = new i18n.I18n();
-
-Translator.configure({
-  locales: locales, // locales,
-  directory: path.join(__dirname, "locales"),
-  defaultLocale: "en",
-  fallbacks: { "*": "en" },
-  retryInDefaultLocale: true,
-  autoReload: true,
-  objectNotation: true
+const translator = new Translator({
+  locales: locales,
+  defaultLocale: "en"
 });
 
 export default {
-  Translator,
+  translator,
   locales,
-  translate: Translator.__,
+  translate: translator.translate,
 };
+
+export type Locale =
+| "en"
+| "bg"
+| "zh-CN"
+| "zh-TW"
+| "hr"
+| "cs"
+| "da"
+| "nl"
+| "fi"
+| "fr"
+| "de"
+| "el"
+| "hi"
+| "hu"
+| "it"
+| "ja"
+| "ko"
+| "lt"
+| "no"
+| "pl"
+| "pt"
+| "ro"
+| "ru"
+| "es"
+| "sv-SE"
+| "th"
+| "tr"
+| "uk"
+| "vi";
