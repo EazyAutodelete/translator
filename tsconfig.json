@@ -103,7 +103,7 @@
     "**.ts",
     "**/**.js",
     "**.js",
-    "**/locales/**.json"
+    "**/locales/**.json5"
   ],
   "exclude": [
     "build/"

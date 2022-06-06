@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "fs";
 import path from "path";
 import locales from "./locales";
 import { parse } from "json5";
-import { Locale } from ".";
+import { TranslatorConfig } from ".";
 
 export default class Translator {
   locales: string[];
@@ -35,9 +35,8 @@ export default class Translator {
       );
     }
   }
-}
 
-export interface TranslatorConfig {
-  defaultLocale: Locale;
-  locales: Locale[]
+  public async getLocales() {
+    return this.config.locales;
+  }
 }
