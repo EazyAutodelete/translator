@@ -36,7 +36,7 @@ export default class Translator {
     }
   }
 
-  public async getLocales() {
+  public getLocales() {
     return this.config.locales;
   }
 }
