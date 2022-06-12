@@ -19,6 +19,13 @@ export default class Translator {
     message.split(".").map(x => {
       translated = translated?.[x];
     });
+    if (!translated || typeof translated != "string") {
+      translated = this.data[this.config.defaultLocale];
+      return null;
+    };
+    message.split(".").map(x => {
+      translated = translated?.[x];
+    });
     if (!translated || typeof translated != "string") return null;
 
     args.map(x => {
