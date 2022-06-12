@@ -21,7 +21,6 @@ export default class Translator {
     });
     if (!translated || typeof translated != "string") {
       translated = this.data[this.config.defaultLocale];
-      return null;
     };
     message.split(".").map(x => {
       translated = translated?.[x];

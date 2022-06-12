@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "build/**/*.js",
     "build/*.d.ts",
     "build/**/*.d.ts",
-    "build/*.json",
-    "build/**/*.json"
+    "build/*.json5",
+    "build/**/*.json5"
   ],
   "repository": {
     "type": "git",
