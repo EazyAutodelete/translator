@@ -16,15 +16,19 @@ export default class Translator {
 
   public translate(message: string, language: string, ...args: string[]): string | null {
     let translated: any = this.data[language] || this.data[this.config.defaultLocale];
-    message.split(".").map(x => {
+
+    message.split(".").forEach(x => {
       translated = translated?.[x];
     });
+
     if (!translated || typeof translated != "string") {
       translated = this.data[this.config.defaultLocale];
+
+      message.split(".").forEach(x => {
+        translated = translated?.[x];
+      });
     };
-    message.split(".").map(x => {
-      translated = translated?.[x];
-    });
+
     if (!translated || typeof translated != "string") return null;
 
     args.map(x => {

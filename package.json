@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/index.js",
   "scripts": {
@@ -32,9 +32,6 @@
   "homepage": "https://github.com/eazyautodelete/eazyautodelete-lang#readme",
   "dependencies": {
     "json5": "^2.2.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@types/json5": "^2.2.0",
