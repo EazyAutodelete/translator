@@ -9,12 +9,14 @@ export default class Translator {
   defaultLocale: string;
   logger: Logger;
   token: string;
+  languageNames: Map<string, string>;
 
   constructor(token: string) {
     this.token = token;
     this.locales = [];
     this.defaultLocale = "en";
     this.logger = new Logger();
+    this.languageNames = new Map();
   }
 
   public translate(message: string, language: string, ...args: string[]): string {
@@ -84,11 +86,33 @@ export default class Translator {
 
     const languageCodes = result.data.map((x: any) => x.code);
 
+    await Promise.all(result.data.map((x: any) => this.languageNames.set(x.code, x.name)));
+
     this.locales = languageCodes;
     this.defaultLocale = "en";
   }
 
   public getLocales() {
     return this.locales;
+  }
+
+  public getLanguageNames() {
+    return this.languageNames;
+  }
+
+  public getDefaultLocale() {
+    return this.defaultLocale;
+  }
+
+  public getLanguageName(code: string) {
+    return this.languageNames.get(code);
+  }
+
+  public getLanguageCode(name: string) {
+    return [...this.languageNames.entries()].find(([, v]) => v === name)?.[0];
+  }
+
+  public getLanguageNamesArray() {
+    return [...this.languageNames.values()];
   }
 }

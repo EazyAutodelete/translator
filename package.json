@@ -1,6 +1,6 @@
 {
-  "name": "@eazyautodelete/eazyautodelete-lang",
-  "version": "1.3.0",
+  "name": "@eazyautodelete/translator",
+  "version": "1.3.1",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/Translator.js",
   "scripts": {
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eazyautodelete/eazyautodelete-lang.git"
+    "url": "git+https://github.com/eazyautodelete/translator.git"
   },
   "types": "build/index.d.ts",
   "author": {
@@ -27,9 +27,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eazyautodelete/eazyautodelete-lang/issues"
+    "url": "https://github.com/eazyautodelete/translator/issues"
   },
-  "homepage": "https://github.com/eazyautodelete/eazyautodelete-lang#readme",
+  "homepage": "https://github.com/eazyautodelete/translator#readme",
   "dependencies": {
     "@eazyautodelete/logger": "^1.0.1",
     "axios": "^0.27.2"
