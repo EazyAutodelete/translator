@@ -43,6 +43,7 @@ export default class Translator {
 
     const files = readdirSync(path.join(__dirname, "locales"));
     for (const file of files) {
+      if (!file.endsWith(".json")) continue;
       const locale = file.split(".")[0];
       const data = JSON.parse(readFileSync(path.join(__dirname, "locales", file), "utf8"));
       this.data[locale] = data;
