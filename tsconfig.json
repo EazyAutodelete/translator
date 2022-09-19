@@ -101,7 +101,7 @@
   "include": [
     "**/**.ts",
     "**.ts",
-    "**/locales/**.json5"
+    "src/locales/locales_here.txt"
   ],
   "exclude": [
     "build/"

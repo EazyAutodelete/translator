@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/translator",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/Translator.js",
   "scripts": {
@@ -11,9 +11,7 @@
     "build/*.js",
     "build/**/*.js",
     "build/*.d.ts",
-    "build/**/*.d.ts",
-    "build/*.json5",
-    "build/**/*.json5"
+    "build/**/*.d.ts"
   ],
   "repository": {
     "type": "git",
