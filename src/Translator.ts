@@ -11,11 +11,11 @@ export default class Translator {
   token: string;
   languageNames: Map<string, string>;
 
-  constructor(token: string) {
+  constructor(token: string, Logger: Logger) {
     this.token = token;
     this.locales = [];
     this.defaultLocale = "en";
-    this.logger = new Logger();
+    this.logger = Logger;
     this.languageNames = new Map();
   }
 
@@ -87,7 +87,7 @@ export default class Translator {
 
     const languageCodes = result.data.map((x: any) => x.code);
 
-    await Promise.all(result.data.map((x: any) => this.languageNames.set(x.code, x.name)));
+    await Promise.all(result.data.map((x: any) => this.languageNames.set(x.code, x.language)));
 
     this.locales = languageCodes;
     this.defaultLocale = "en";
