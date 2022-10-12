@@ -33,7 +33,7 @@ export default class Translator {
 
   public async loadMessages() {
     await this.loadLocales();
-    this.logger.info(`Loaded ${this.locales.length} locales`, "I18N");
+    this.logger.info(`[🗯️] Loaded ${this.locales.length} locales`, "I18N");
 
     await Promise.all(
       this.locales.map(async lang => {
@@ -49,7 +49,7 @@ export default class Translator {
       this.data[locale] = data;
     }
 
-    this.logger.info(`Loaded Data for ${Object.keys(this.data).length} locales`, "I18N");
+    this.logger.info(`[🗯️] Loaded Data for ${Object.keys(this.data).length} locales`, "I18N");
   }
 
   public async loadLanguage(language: string) {
