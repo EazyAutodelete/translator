@@ -13,10 +13,6 @@ We need every help translating the bot in all languages.
 
 See https://eazyautodelete.xyz/translate
 
-
-### Code
- 1. qreepex#0001
-
 ## 🤖 About EazyAutodelete
 
 **EazyAutodelete** - A Discord Bot to organise and clean up your channels!
