@@ -7,27 +7,12 @@ Text Delivery Client for [EazyAutodelete](https://eazyautodelete.xyz)! All visib
 
 ## 🚧 Help us!
 
-We need every help translating the bot in all languages. All languages that are currently supported:
-
-```English, Bulgarian, Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Finnish, French, German, Greek, Hindi, Hungarian, Italian, Japanese, Korean, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian, Vietnamese```
+We need every help translating the bot in all languages. 
 
 ### How to help:
 
-1. [Fork](https://github.com/EazyAutodelete/eazyautodelete-lang/fork) this repository
-2. Edit the [`.json`](https://github.com/EazyAutodelete/eazyautodelete-lang/tree/main/src/locales) file of the language
-3. [Create a pull request](https://github.com/EazyAutodelete/eazyautodelete-lang/compare) in which you describe **exactly** what you have changed
-4. Label your Pull Request with [`new translation`](https://github.com/EazyAutodelete/eazyautodelete-lang/labels/new%20translation) or [`edited translation`](https://github.com/EazyAutodelete/eazyautodelete-lang/labels/edited%20translation)
+See https://eazyautodelete.xyz/translate
 
-We will check your translation afterwards and implement it into the [Bot](https://eazyautodelete.xyz).
-
-## 👥 Credits
-
-### Translations
-
-- **English:**
-  - qreepex#0001
-- **German:**
-  - qreepex#0001
 
 ### Code
  1. qreepex#0001
