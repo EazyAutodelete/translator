@@ -19,6 +19,10 @@ export default class Translator {
     this.languageNames = new Map();
   }
 
+  public async reloadMessages() {
+    await this.loadMessages();
+  }
+
   public translate(message: string, language: string, ...args: string[]): string {
     let i18n = this.data?.[language]?.[message] || this.data[this.defaultLocale]?.[message];
 
@@ -41,37 +45,22 @@ export default class Translator {
       })
     );
 
-    const files = readdirSync(path.join(__dirname, "locales"));
-    for (const file of files) {
-      if (!file.endsWith(".json")) continue;
-      const locale = file.split(".")[0];
-      const data = JSON.parse(readFileSync(path.join(__dirname, "locales", file), "utf8"));
-      this.data[locale] = data;
-    }
-
     this.logger.info(`[🗯️] Loaded Data for ${Object.keys(this.data).length} locales`, "I18N");
   }
 
-  public async loadLanguage(language: string) {
+  public async loadLanguage(locale: string) {
     const result = await axios
-      .get(`https://translate.eazyautodelete.xyz/api/translations/bot/commands/${language}/file/`, {
+      .get(`https://translate.eazyautodelete.xyz/api/translations/bot/commands/${locale}/file/`, {
         headers: {
           Authorization: `Token ${this.token}`,
         },
-        responseType: "stream",
       })
       .catch(console.error);
 
     if (!result || !result.data) return;
 
-    const writer = createWriteStream(path.join(__dirname, "locales", `${language}.json`));
-
-    result.data.pipe(writer);
-
-    await new Promise((resolve, reject) => {
-      writer.on("finish", resolve);
-      writer.on("error", reject);
-    });
+    const data = result.data;
+    this.data[locale] = data;
   }
 
   public async loadLocales() {
