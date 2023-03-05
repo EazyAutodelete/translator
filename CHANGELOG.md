@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/eazyautodelete/translator/compare/v1.4.1...v1.4.2) (2023-03-05)
+
+
+### Bug Fixes
+
+* **data:** rm locales dir ([270c78b](https://github.com/eazyautodelete/translator/commit/270c78bedadc9a0bcbac928bbebcbb95080a2250))
+
 ### [1.4.1](https://github.com/eazyautodelete/translator/compare/v1.4.0...v1.4.1) (2023-03-05)
 
 ## 1.4.0 (2023-03-05)
