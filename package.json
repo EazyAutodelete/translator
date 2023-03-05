@@ -1,6 +1,6 @@
 {
   "name": "@eazyautodelete/translator",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "💬 Language files used by EazyAutodelete",
   "main": "build/Translator.js",
   "scripts": {
