@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/eazyautodelete/translator/compare/v1.4.2...v1.5.0) (2023-07-01)
+
+
+### Features
+
+* store translations on disk ([5127901](https://github.com/eazyautodelete/translator/commit/51279017b66a32191ed608b0214c6df0d1157d19))
+
 ### [1.4.2](https://github.com/eazyautodelete/translator/compare/v1.4.1...v1.4.2) (2023-03-05)
 
 
