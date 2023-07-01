@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, createWriteStream } from "fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from "fs";
 import path from "path";
 import axios from "axios";
 import Logger from "@eazyautodelete/logger";
@@ -10,6 +10,7 @@ export default class Translator {
   logger: Logger;
   token: string;
   languageNames: Map<string, string>;
+  loadFromI18n: boolean;
 
   constructor(token: string, Logger: Logger) {
     this.token = token;
@@ -17,6 +18,7 @@ export default class Translator {
     this.defaultLocale = "en";
     this.logger = Logger;
     this.languageNames = new Map();
+    this.loadFromI18n = true;
   }
 
   public async reloadMessages() {
@@ -49,30 +51,93 @@ export default class Translator {
   }
 
   public async loadLanguage(locale: string) {
-    const result = await axios
-      .get(`https://translate.eazyautodelete.xyz/api/translations/bot/commands/${locale}/file/`, {
-        headers: {
-          Authorization: `Token ${this.token}`,
-        },
-      })
-      .catch(console.error);
+    if (this.loadFromI18n) {
+      const result = await axios
+        .get(`https://translate.eazyautodelete.xyz/api/translations/bot/commands/${locale}/file/`, {
+          headers: {
+            Authorization: `Token ${this.token}`,
+          },
+        })
+        .catch(console.error);
 
-    if (!result || !result.data) return;
+      if (!result || !result.data) return;
 
-    const data = result.data;
-    this.data[locale] = data;
+      if (!existsSync("./i18n")) mkdirSync("./i18n");
+      writeFileSync(`./i18n/${locale}.json`, JSON.stringify(result.data, null, 2));
+
+      const data = result.data;
+      this.data[locale] = data;
+    } else {
+      if (!existsSync("./i18n")) mkdirSync("./i18n");
+
+      const file = existsSync(`./i18n/${locale}.json`) ? readFileSync(`./i18n/${locale}.json`).toString() : "{}";
+      if (!file) return;
+
+      const data = JSON.parse(file);
+      this.data[locale] = data || {};
+    }
   }
 
   public async loadLocales() {
-    const result = await axios
+    let result: { data: { code: string }[] } = (await axios
       .get("https://translate.eazyautodelete.xyz/api/projects/bot/languages/", {
         headers: {
           Authorization: `Token ${this.token}`,
         },
       })
-      .catch(console.error);
+      .catch(() => null)) as any;
 
-    if (!result || !result.data) return;
+    if (!result || !result.data) {
+      this.loadFromI18n = false;
+      result = { data: [] };
+      result.data = [
+        {
+          code: "ar",
+        },
+        {
+          code: "da",
+        },
+        {
+          code: "nl",
+        },
+        {
+          code: "en",
+        },
+        {
+          code: "fr",
+        },
+        {
+          code: "de",
+        },
+        {
+          code: "el",
+        },
+        {
+          code: "ja",
+        },
+        {
+          code: "fa",
+        },
+        {
+          code: "pl",
+        },
+        {
+          code: "pt_BR",
+        },
+        {
+          code: "ro",
+        },
+        {
+          code: "ru",
+        },
+        {
+          code: "es",
+        },
+        {
+          code: "tr",
+        },
+      ];
+    }
 
     const languageCodes = result.data.map((x: any) => x.code);
 
