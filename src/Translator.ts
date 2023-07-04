@@ -11,6 +11,7 @@ export default class Translator {
   token: string;
   languageNames: Map<string, string>;
   loadFromI18n: boolean;
+  loadFromGit: boolean;
 
   constructor(token: string, Logger: Logger) {
     this.token = token;
@@ -19,6 +20,7 @@ export default class Translator {
     this.logger = Logger;
     this.languageNames = new Map();
     this.loadFromI18n = true;
+    this.loadFromGit = true;
   }
 
   public async reloadMessages() {
@@ -60,6 +62,20 @@ export default class Translator {
         })
         .catch(console.error);
 
+      if (!result) return;
+
+      if (!existsSync("./i18n")) mkdirSync("./i18n");
+      writeFileSync(`./i18n/${locale}.json`, JSON.stringify(result, null, 2));
+
+      const data = result.data;
+      this.data[locale] = data;
+    } else if (this.loadFromGit) {
+      const result = await axios
+        .get(`https://raw.githubusercontent.com/EazyAutodelete/translations/main/commands/${locale}.json`, {
+          responseType: "json",
+        })
+        .catch(console.error);
+
       if (!result || !result.data) return;
 
       if (!existsSync("./i18n")) mkdirSync("./i18n");
@@ -79,69 +95,79 @@ export default class Translator {
   }
 
   public async loadLocales() {
-    let result: { data: { code: string }[] } = (await axios
-      .get("https://translate.eazyautodelete.xyz/api/projects/bot/languages/", {
-        headers: {
-          Authorization: `Token ${this.token}`,
-        },
-      })
-      .catch(() => null)) as any;
+    var result = [
+      {
+        code: "ar",
+      },
+      {
+        code: "da",
+      },
+      {
+        code: "de",
+      },
+      {
+        code: "el",
+      },
+      {
+        code: "en",
+      },
+      {
+        code: "es",
+      },
+      {
+        code: "fa",
+      },
+      {
+        code: "fr",
+      },
+      {
+        code: "ja",
+      },
+      {
+        code: "nl",
+      },
+      {
+        code: "pl",
+      },
+      {
+        code: "pt_BR",
+      },
+      {
+        code: "ro",
+      },
+      {
+        code: "ru",
+      },
+      {
+        code: "tr",
+      },
+    ];
 
-    if (!result || !result.data) {
-      this.loadFromI18n = false;
-      result = { data: [] };
-      result.data = [
-        {
-          code: "ar",
-        },
-        {
-          code: "da",
-        },
-        {
-          code: "nl",
-        },
-        {
-          code: "en",
-        },
-        {
-          code: "fr",
-        },
-        {
-          code: "de",
-        },
-        {
-          code: "el",
-        },
-        {
-          code: "ja",
-        },
-        {
-          code: "fa",
-        },
-        {
-          code: "pl",
-        },
-        {
-          code: "pt_BR",
-        },
-        {
-          code: "ro",
-        },
-        {
-          code: "ru",
-        },
-        {
-          code: "es",
-        },
-        {
-          code: "tr",
-        },
-      ];
+    if (this.loadFromGit) {
+      const req = await axios
+        .get("https://api.github.com/repos/eazyautodelete/translations/contents/commands")
+        .catch(() => null);
+
+      if (!req || !req.data) this.loadFromGit = false;
+      else result = req.data.map((x: any) => ({ code: x.name.replace(".json", "") }));
     }
 
-    const languageCodes = result.data.map((x: any) => x.code);
+    if (this.loadFromI18n) {
+      const req = await axios
+        .get("https://translate.eazyautodelete.xyz/api/projects/bot/languages/", {
+          headers: {
+            Authorization: `Token ${this.token}`,
+          },
+        })
+        .catch(() => null);
 
-    await Promise.all(result.data.map((x: any) => this.languageNames.set(x.code, x.language)));
+      if (!req || !req.data) this.loadFromI18n = false;
+      else result = req.data;
+    }
+
+    const languageCodes = result.map(x => x.code);
+
+    await Promise.all(result.map((x: any) => this.languageNames.set(x.code, x.language)));
 
     this.locales = languageCodes;
     this.defaultLocale = "en";
